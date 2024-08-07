@@ -6,5 +6,6 @@
 
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://EaseGraphs/Icons.axaml" />
     </Application.Styles>
 </Application>
