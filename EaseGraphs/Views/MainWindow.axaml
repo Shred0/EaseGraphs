@@ -18,29 +18,37 @@
       <ExperimentalAcrylicBorder.Material>
         <ExperimentalAcrylicMaterial
             BackgroundSource="Digger"
-            TintColor="Black"
             TintOpacity="1"
             MaterialOpacity="0.5" />
       </ExperimentalAcrylicBorder.Material>
     </ExperimentalAcrylicBorder>
-
+    
     <DockPanel>
 
       <!--Window top bar-->
       <Panel DockPanel.Dock="Top" Height="30">
       </Panel>
-
+      
+      <!--MainView + Sidebar Menu-->
       <SplitView IsPaneOpen="False"
            DisplayMode="CompactOverlay"
+           CompactPaneLength="45"
            OpenPaneLength="300">
-        <!--CompactPaneLength="" default is 45px-->
 
         <!--Sidebar Menu-->
         <SplitView.Pane>
-          <TextBlock Text="Pane"
-                   FontSize="24"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+          <Panel>
+            <ExperimentalAcrylicBorder IsHitTestVisible="False">
+              <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintOpacity="1"
+                    MaterialOpacity="0.5" />
+              </ExperimentalAcrylicBorder.Material>
+            </ExperimentalAcrylicBorder>
+            <!--<views:SidebarMenuView />-->
+            <views:SidebarMenuView />
+          </Panel>
         </SplitView.Pane>
 
         <!--Main View Panel-->
