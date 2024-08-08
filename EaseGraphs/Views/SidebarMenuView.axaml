@@ -10,7 +10,8 @@
       
       <Panel DockPanel.Dock="Right" Width="45">
         <StackPanel>
-          <Button Background="Transparent">
+          <Button Background="Transparent"
+                  Command="{Binding $parent[Window].DataContext.ToggleExpandSidebarMenu}">
             <PathIcon Data="{StaticResource store_microsoft_regular}" />
           </Button>
         </StackPanel>
