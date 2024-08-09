@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:EaseGraphs.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="EaseGraphs.Views.MainWindow"
-        x:DataType="vm:MainViewModel"
+        x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="EaseGraphs"
         TransparencyLevelHint="AcrylicBlur"
@@ -24,46 +24,28 @@
         <ExperimentalAcrylicMaterial
             BackgroundSource="Digger"
             TintOpacity="1"
+            TintColor=""
             MaterialOpacity="0.5" />
       </ExperimentalAcrylicBorder.Material>
     </ExperimentalAcrylicBorder>
-    
+
     <DockPanel>
 
       <!--Window top bar-->
       <Panel DockPanel.Dock="Top" Height="30">
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+          <ExperimentalAcrylicBorder.Material>
+            <ExperimentalAcrylicMaterial
+                BackgroundSource="Digger"
+                TintOpacity="1"
+                TintColor="Black"
+                MaterialOpacity="1" />
+          </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
       </Panel>
-      
-      <!--MainView + Sidebar Menu-->
-      <SplitView IsPaneOpen="False"
-           DisplayMode="CompactOverlay"
-           CompactPaneLength="45"
-           OpenPaneLength="300">
 
-        <!--Sidebar Menu-->
-        <SplitView.Pane>
-          <Panel>
-            <ExperimentalAcrylicBorder IsHitTestVisible="False">
-              <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintOpacity="1"
-                    MaterialOpacity="0.5" />
-              </ExperimentalAcrylicBorder.Material>
-            </ExperimentalAcrylicBorder>
-            <!--<views:SidebarMenuView />-->
-            <views:SidebarMenuView />
-          </Panel>
-        </SplitView.Pane>
-
-        <!--Main View Panel-->
-        <Panel>
-          <views:MainView />
-          <Button HorizontalAlignment="Right" VerticalAlignment="Top">
-            <PathIcon Data="{StaticResource store_microsoft_regular}" />
-          </Button>
-        </Panel>
-      </SplitView>
+      <!--Sidebar Menu + Main View-->
+      <views:SidebarMenuView/>
 
     </DockPanel>
 

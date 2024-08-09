@@ -1,6 +1,9 @@
-﻿namespace EaseGraphs.ViewModels;
+﻿using ReactiveUI;
+
+namespace EaseGraphs.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
     public string Greeting => "Welcome to Avalonia!";
+
 }

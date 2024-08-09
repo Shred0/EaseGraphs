@@ -2,22 +2,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
-             x:Class="EaseGraphs.Views.SidebarMenuView">
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:views="using:EaseGraphs.Views"
+             xmlns:vm="using:EaseGraphs.ViewModels"
+             x:Class="EaseGraphs.Views.SidebarMenuView"
+             x:DataType="vm:SidebarMenuViewModel">
+  <Design.DataContext>
+    <vm:SidebarMenuViewModel/>
+  </Design.DataContext>
+  
   <Panel>
-    <DockPanel>
-      
-      
-      <Panel DockPanel.Dock="Right" Width="45">
-        <StackPanel>
-          <Button Background="Transparent"
-                  Command="{Binding $parent[Window].DataContext.ToggleExpandSidebarMenu}">
-            <PathIcon Data="{StaticResource store_microsoft_regular}" />
-          </Button>
-        </StackPanel>
-      </Panel>
-      
-      <TextBlock >Menu</TextBlock>
-    </DockPanel>
+
+    <!--MainView + Sidebar Menu-->
+    <SplitView IsPaneOpen="{Binding IsSidebarMenuOpen}"
+         DisplayMode="CompactOverlay"
+         CompactPaneLength="45"
+         OpenPaneLength="300">
+
+      <!--Sidebar Menu-->
+      <SplitView.Pane>
+        <Panel>
+          <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+              <ExperimentalAcrylicMaterial
+                  BackgroundSource="Digger"
+                  TintOpacity="1"
+                  TintColor="Black"
+                  MaterialOpacity="0.5" />
+            </ExperimentalAcrylicBorder.Material>
+          </ExperimentalAcrylicBorder>
+          <!--<views:SidebarMenuView />-->
+
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="45">
+            
+            <StackPanel Orientation="Horizontal">
+              <Button Width="45" Background="Transparent"
+                      Click="Button_Click">
+                <PathIcon Data="{StaticResource home_regular}" />
+              </Button>
+              <TextBlock>MENU</TextBlock>
+            </StackPanel>
+            
+          </StackPanel>
+
+        </Panel>
+      </SplitView.Pane>
+
+      <!--Main View Panel-->
+      <SplitView.Content>
+        <Panel>
+          <!--<views:MainView />-->
+        </Panel>
+      </SplitView.Content>
+
+    </SplitView>
+    
   </Panel>
 </UserControl>
