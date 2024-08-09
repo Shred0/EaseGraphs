@@ -44,8 +44,8 @@
         </ExperimentalAcrylicBorder>
       </Panel>
 
-      <!--Sidebar Menu + Main View-->
-      <views:SidebarMenuView/>
+      <!--Main View-->
+      <views:MainView Name="MainView"/>
 
     </DockPanel>
 

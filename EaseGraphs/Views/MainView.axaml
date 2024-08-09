@@ -2,8 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:EaseGraphs.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:views="using:EaseGraphs.Views"
+             xmlns:vm="using:EaseGraphs.ViewModels"
              x:Class="EaseGraphs.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
@@ -13,6 +14,62 @@
   </Design.DataContext>
 
   <Panel>
-    <TextBlock Text="{Binding Greeting}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+            BackgroundSource="Digger"
+            TintOpacity="1"
+            TintColor=""
+            MaterialOpacity="0.5" />
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+
+    <!--MainView + Sidebar Menu-->
+    <SplitView IsPaneOpen="{Binding IsSidebarMenuOpen}"
+         DisplayMode="CompactOverlay"
+         CompactPaneLength="45"
+         OpenPaneLength="300">
+
+      <!--Sidebar Menu-->
+      <SplitView.Pane>
+        <Panel>
+          <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+              <ExperimentalAcrylicMaterial
+                  BackgroundSource="Digger"
+                  TintOpacity="1"
+                  TintColor="Black"
+                  MaterialOpacity="0.5" />
+            </ExperimentalAcrylicBorder.Material>
+          </ExperimentalAcrylicBorder>
+          <!--<views:SidebarMenuView />-->
+
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="45">
+
+            <StackPanel Orientation="Horizontal">
+              <Button Width="45" Background="Transparent"
+                      Command="{Binding ToggleOpenSidebarMenu}">
+                <PathIcon Data="{StaticResource line_horizontal_3_regular}" />
+                <!--<TextBlock>MENU</TextBlock>-->
+              </Button>
+            </StackPanel>
+
+          </StackPanel>
+
+        </Panel>
+      </SplitView.Pane>
+
+      <!--Main View Panel-->
+      <SplitView.Content>
+        <Panel>
+          <!--<views:MainView />-->
+          <views:ContentView />
+        </Panel>
+      </SplitView.Content>
+
+    </SplitView>
+
   </Panel>
+  
 </UserControl>

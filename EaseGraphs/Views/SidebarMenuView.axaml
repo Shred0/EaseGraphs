@@ -38,7 +38,7 @@
             <StackPanel Orientation="Horizontal">
               <Button Width="45" Background="Transparent"
                       Click="Button_Click">
-                <PathIcon Data="{StaticResource home_regular}" />
+                <PathIcon Data="{StaticResource line_horizontal_3_regular}" />
               </Button>
               <TextBlock>MENU</TextBlock>
             </StackPanel>
@@ -52,6 +52,7 @@
       <SplitView.Content>
         <Panel>
           <!--<views:MainView />-->
+          <views:ContentView />
         </Panel>
       </SplitView.Content>
 

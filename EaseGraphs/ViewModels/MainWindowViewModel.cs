@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Avalonia.Metadata;
+using ReactiveUI;
 using System;
 using System.Runtime.CompilerServices;
 
@@ -8,22 +9,18 @@ public class MainWindowViewModel : ViewModelBase
 {
 
     public MainWindowViewModel() {
-        
+        //_currentContentView = _mainViewModel;
     }
 
-    private SidebarMenuViewModel _sidebarMenuViewModel;
-    private MainWindowViewModel _mainWindowViewModel;
+    // The default is the first page
+    //private ViewModelBase _currentContentView;
+    //public ViewModelBase CurrentContentView
+    //{
+    //    get { return _currentContentView; }
+    //    private set { this.RaiseAndSetIfChanged(ref _currentContentView, value); }
+    //}
 
-    private bool _isSidebarMenuOpen = false;
-    public bool IsSidebarMenuOpen
-    {
-        get { return _isSidebarMenuOpen; }
-        set { this.RaiseAndSetIfChanged(ref _isSidebarMenuOpen, value); }
-    }
+    //public MainViewModel _mainViewModel = new MainViewModel();
 
-    public void ToggleOpenSidebarMenu()
-    {
-        IsSidebarMenuOpen = !IsSidebarMenuOpen;
-    }
-
+    public MainViewModel? _MainDataContext = new MainViewModel();
 }
