@@ -20,14 +20,14 @@ public class MainViewModel : ViewModelBase
 
     public void ToggleOpenSidebarMenu()
     {
-        Debug.WriteLine("hahahah");
+        Debug.WriteLine("Menu toggled");
         IsSidebarMenuOpen = !IsSidebarMenuOpen;
     }
 
-    public void Button_Click(object source, RoutedEventArgs args)
-    {
-        ToggleOpenSidebarMenu();
-    }
+    //public void Button_Click(object source, RoutedEventArgs args)
+    //{
+    //    //ToggleOpenSidebarMenu();
+    //}
 
 
 }

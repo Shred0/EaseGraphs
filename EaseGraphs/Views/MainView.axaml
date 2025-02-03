@@ -20,8 +20,8 @@
         <ExperimentalAcrylicMaterial
             BackgroundSource="Digger"
             TintOpacity="1"
-            TintColor=""
-            MaterialOpacity="0.5" />
+            TintColor="Gray"
+            MaterialOpacity="0.4" />
       </ExperimentalAcrylicBorder.Material>
     </ExperimentalAcrylicBorder>
 
@@ -29,7 +29,7 @@
     <SplitView IsPaneOpen="{Binding IsSidebarMenuOpen}"
          DisplayMode="CompactOverlay"
          CompactPaneLength="45"
-         OpenPaneLength="300">
+         OpenPaneLength="200">
 
       <!--Sidebar Menu-->
       <SplitView.Pane>
@@ -40,21 +40,39 @@
                   BackgroundSource="Digger"
                   TintOpacity="1"
                   TintColor="Black"
-                  MaterialOpacity="0.5" />
+                  MaterialOpacity="0.4" />
             </ExperimentalAcrylicBorder.Material>
           </ExperimentalAcrylicBorder>
           <!--<views:SidebarMenuView />-->
 
           <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="45">
-
-            <StackPanel Orientation="Horizontal">
+            
+            <!--Menu Btn + Text-->
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,0,0,30">
               <Button Width="45" Background="Transparent"
                       Command="{Binding ToggleOpenSidebarMenu}">
                 <PathIcon Data="{StaticResource line_horizontal_3_regular}" />
-                <!--<TextBlock>MENU</TextBlock>-->
               </Button>
+              <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">
+                MENU
+              </TextBlock>
             </StackPanel>
 
+            <Button Width="200" Background="Transparent" Padding="0,8,0,8">
+              <StackPanel Orientation="Horizontal">
+                
+                <Panel Width="45">
+                  <PathIcon Data="{StaticResource person_regular}"/>
+                </Panel>
+                
+                <TextBlock VerticalAlignment="Center" Margin="10,0,0,0">
+                  PROFILE
+                </TextBlock>
+                
+              </StackPanel>
+            </Button>
+            
           </StackPanel>
 
         </Panel>
